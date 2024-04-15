@@ -1,3 +1,4 @@
+require 'rainbow'
 which = ARGV[0]
 
 be = [
@@ -129,8 +130,17 @@ fe = [
 
 if which == "be"
    question = be.sample
+   puts "BE: " + Rainbow(question).blue
 elsif which == "fe"
    question = fe.sample
+   puts "FE: " + Rainbow(question).green
+else
+   arr = []
+   arr[0] = be
+   arr[1] = fe
+   arr = arr.flatten
+   question = arr.sample
+   puts Rainbow("**Note - include 'be' or 'fe' as an argument to get a specific question.**").red
+   puts Rainbow(question).yellow
 end
 
-puts question
